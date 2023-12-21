@@ -1,10 +1,20 @@
 from llama_index import VectorStoreIndex, SimpleDirectoryReader
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+print(openai_api_key)
+# Check if the API key is loaded successfully
+if openai_api_key is not None:
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+
 
 #### To persist the data
 from llama_index import StorageContext, load_index_from_storage
 
-os.environ["OPENAI_API_KEY"] = 'XXXXXXXXXXXXXXXXXXXx'
+
 documents = SimpleDirectoryReader("./sleep").load_data()
 
 
