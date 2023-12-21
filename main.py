@@ -2,10 +2,11 @@ from llama_index import VectorStoreIndex, SimpleDirectoryReader
 import os
 
 #### To persist the data
-
-os.environ["OPENAI_API_KEY"] = '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'
-documents = SimpleDirectoryReader("./sleep").load_data()
 from llama_index import StorageContext, load_index_from_storage
+
+os.environ["OPENAI_API_KEY"] = 'XXXXXXXXXXXXXXXXXXXx'
+documents = SimpleDirectoryReader("./sleep").load_data()
+
 
 try:
     storage_context = StorageContext.from_defaults(persist_dir="./Store")
